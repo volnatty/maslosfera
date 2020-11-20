@@ -1,0 +1,159 @@
+# BEGIN GzipWpFastestCache
+<IfModule mod_deflate.c>
+AddType x-font/woff .woff
+AddType x-font/ttf .ttf
+AddOutputFilterByType DEFLATE image/svg+xml
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE text/javascript
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
+AddOutputFilterByType DEFLATE application/x-font-ttf
+AddOutputFilterByType DEFLATE x-font/ttf
+AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+AddOutputFilterByType DEFLATE font/opentype font/ttf font/eot font/otf
+</IfModule>
+# END GzipWpFastestCache
+# BEGIN LBCWpFastestCache
+<FilesMatch "\.(webm|ogg|mp4|ico|pdf|flv|jpg|jpeg|png|gif|webp|js|css|swf|x-html|css|xml|js|woff|woff2|otf|ttf|svg|eot)(\.gz)?$">
+<IfModule mod_expires.c>
+AddType application/font-woff2 .woff2
+AddType application/x-font-opentype .otf
+ExpiresActive On
+ExpiresDefault A0
+ExpiresByType video/webm A10368000
+ExpiresByType video/ogg A10368000
+ExpiresByType video/mp4 A10368000
+ExpiresByType image/webp A10368000
+ExpiresByType image/gif A10368000
+ExpiresByType image/png A10368000
+ExpiresByType image/jpg A10368000
+ExpiresByType image/jpeg A10368000
+ExpiresByType image/ico A10368000
+ExpiresByType image/svg+xml A10368000
+ExpiresByType text/css A10368000
+ExpiresByType text/javascript A10368000
+ExpiresByType application/javascript A10368000
+ExpiresByType application/x-javascript A10368000
+ExpiresByType application/font-woff2 A10368000
+ExpiresByType application/x-font-opentype A10368000
+ExpiresByType application/x-font-truetype A10368000
+</IfModule>
+<IfModule mod_headers.c>
+Header set Expires "max-age=A10368000, public"
+Header unset ETag
+Header set Connection keep-alive
+FileETag None
+</IfModule>
+</FilesMatch>
+# END LBCWpFastestCache
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteRule ^maslicko/?$ /wp-login.php?kitkat [R,L]
+ 
+RewriteCond %{HTTP_COOKIE} !^.*wordpress_logged_in_.*$
+RewriteRule ^maslicko/?$ /wp-login.php?kitkat&amp;redirect_to=/wp-admin/ [R,L]
+ 
+RewriteRule ^maslicko/?$ /wp-admin/?kitkat [R,L]
+ 
+RewriteCond %{SCRIPT_FILENAME} !^(.*)admin-ajax\.php
+RewriteCond %{HTTP_REFERER} !^(.*)maslosfera.com/wp-admin
+RewriteCond %{HTTP_REFERER} !^(.*)maslosfera.com/wp-login\.php
+RewriteCond %{HTTP_REFERER} !^(.*)maslosfera.com/maslicko
+RewriteCond %{QUERY_STRING} !^kitkat
+RewriteCond %{QUERY_STRING} !^action=logout
+RewriteCond %{QUERY_STRING} !^action=rp
+RewriteCond %{QUERY_STRING} !^action=postpass
+RewriteCond %{HTTP_COOKIE} !^.*wordpress_logged_in_.*$
+RewriteRule ^.*wp-admin/?|^.*wp-login\.php /not_found [R,L]
+ 
+RewriteCond %{QUERY_STRING} ^loggedout=true
+RewriteRule ^.*$ /wp-login.php?kitkat [R,L]
+
+
+
+#RewriteCond %{HTTP_HOST} ^www.maslosfera.com$ [NC]
+#RewriteRule ^(.*)$ https://maslosfera.com/$1 [R=301,L]
+#RewriteCond %{SERVER_PORT} !^443$
+#RewriteCond  %{REQUEST_URI}  !^/wc1c/exchange/& [NC]
+#RewriteCond %{QUERY_STRING} !(^|&)wc1c\=exchange($|&) 
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteBase /
+RewriteRule . - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+
+
+#Сжатие gzip
+<IfModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
+	AddOutputFilterByType DEFLATE text/javascript application/javascript
+	AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
+	<FilesMatch "\.(ttf|otf|eot|svg)$" >
+		SetOutputFilter DEFLATE
+	</FilesMatch>
+</IfModule>
+ 
+#Включение кэширования
+<ifModule mod_expires.c>
+	ExpiresActive On
+	ExpiresDefault "access plus 31557600 seconds"
+	ExpiresByType image/x-icon "access plus 31557600 seconds"
+	ExpiresByType image/jpeg "access plus 31557600 seconds"
+	ExpiresByType image/png "access plus 31557600 seconds"
+	ExpiresByType image/gif "access plus 31557600 seconds"
+	ExpiresByType application/x-shockwave-flash "access plus 31557600 seconds"
+	ExpiresByType text/css "access plus 31557600 seconds"
+	ExpiresByType text/javascript "access plus 31557600 seconds"
+	ExpiresByType application/javascript "access plus 31557600 seconds"
+	ExpiresByType application/x-javascript "access plus 31557600 seconds"
+	ExpiresByType text/html "access plus 31557600 seconds"
+	ExpiresByType application/xhtml+xml "access plus 31557600 seconds"
+</ifModule>
+
+
+</IfModule>
+# BEGIN WordPress
+# Директивы (строки) между `BEGIN WordPress` и `END WordPress`
+# созданы автоматически и подлежат изменению только через фильтры WordPress.
+# Сделанные вручную изменения между этими маркерами будут перезаписаны.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+
+
+# Wordfence WAF
+<Files ".user.ini">
+<IfModule mod_authz_core.c>
+	Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+	Order deny,allow
+	Deny from all
+</IfModule>
+</Files>
+
+# END Wordfence WAF
+
+
+# BEGIN FRedirect_ErrorDocument
+# Строки между `BEGIN FRedirect_ErrorDocument` и `END FRedirect_ErrorDocument` были созданы автоматически.
+# Они могут быть изменены только фильтрами WordPress.
+# Все изменения между этими отметками будут перезаписаны.
+ErrorDocument 404 /index.php?error=404
+# END FRedirect_ErrorDocument
