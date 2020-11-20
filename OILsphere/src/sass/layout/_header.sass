@@ -1,0 +1,466 @@
+
+header 
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    z-index: 99
+    background-color: #fff
+
+.square
+    display: flex
+    align-items: center
+    justify-content: center 
+    width: 25vw
+    max-width: 100px
+    height: 25vw
+    max-height: 100px
+    @media (min-width: 396px)
+        width: 100px
+        height: 100px 
+    
+.logo
+    display: inline-block
+    position: relative
+    overflow: hidden
+    z-index: 2
+    &__layer
+        &--1
+            
+            display: flex
+            align-items: center
+            justify-content: center
+            @include absolute
+            img 
+                width: 100%
+                height: auto
+                @media (min-width: 396px)
+                    width: auto
+        &--2 
+            position: absolute
+            width: 110%
+            height: 110%
+            top: -32px
+            left: -23px
+            overflow: hidden
+            border-radius: 50%
+            background-image: linear-gradient(259.42deg, #FFE08F 0%, #F8C84F 100%)
+            transition: all 0.4s ease
+            display: none
+            @media (min-width: 396px)
+                display: block
+            img 
+                position: absolute
+                left: 23px
+                top: 32px
+    &:hover 
+        .logo__layer--2 
+            width: 170%
+            height: 170%
+
+
+.cart-header
+    background-color: $primary
+    position: relative
+    overflow: hidden
+    z-index: 2
+    &:before 
+        content: ''
+        position: absolute
+        left: 0
+        bottom: -51px
+        width: 0
+        height: 0
+        border-left: 50px solid transparent
+        border-right: 50px solid transparent
+        border-bottom: 51px solid #000
+        transition: all 0.2s ease
+    &:after 
+        content: ''
+        position: absolute
+        left: 0
+        top: -51px
+        width: 0
+        height: 0
+        border-left: 50px solid transparent
+        border-right: 50px solid transparent
+        border-top: 51px solid #000
+        transition: all 0.2s ease
+    span 
+        @include absolute
+        &:before 
+            content: ''
+            position: absolute
+            left: -51px
+            bottom: 0
+            width: 0
+            height: 0
+            border-left: 51px solid #000
+            border-top: 50px solid transparent
+            border-bottom: 50px solid transparent
+            transition: all 0.2s ease
+        &:after 
+            content: ''
+            position: absolute
+            right: -51px
+            top: 0
+            width: 0
+            height: 0
+            border-right: 51px solid #000
+            border-top: 50px solid transparent
+            border-bottom: 50px solid transparent
+            transition: all 0.2s ease
+    svg 
+        fill: $body-color
+        position: relative
+        z-index: 2
+    &:hover
+        svg
+            fill: $primary
+        &:before 
+            bottom: 0
+        &:after 
+            top: 0
+        span 
+            &:before 
+                left: 0
+            &:after
+                right: 0
+
+
+.nav-list 
+    align-items: center 
+    @media (min-width: map_get($grid-breakpoints, md))
+        display: flex
+        flex-direction: initial
+        flex-wrap: wrap
+    @media (min-width: map_get($grid-breakpoints, xl)) and (max-width: 1500px)
+        flex-grow: 1
+        height: 100px
+    @media (min-width: 1500px)
+        width: 50%
+        height: 100px
+    .nav-item
+        flex-grow: 1
+        @media (min-width: map_get($grid-breakpoints, md)) and (max-width: map_get($grid-breakpoints, xl))
+            width: 50%
+        .nav-link
+            position: relative
+            text-align: center
+            @media (max-width: map_get($grid-breakpoints, lg))
+                padding: 10px 0
+                width: 100%
+            @media (min-width: 1500px) and (max-width: 1850px)
+                padding: 10px 0
+                font-size: 14px
+            span 
+                transition: all 0.2s ease
+            &:after 
+                content: ''
+                width: 1px
+                position: absolute
+                right: 0
+                top: 0
+                height: 100%
+                background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 35%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 65%, rgba(255,255,255,1) 100%)
+                display: none
+                @media (min-width: map_get($grid-breakpoints, xl))
+                    display: block
+            &:hover 
+                span 
+                    opacity: 0.5
+        &:last-child 
+            .nav-link:after 
+                display: none
+
+.nav-list--tel
+    background-color: $body-color
+    @media (min-width: map_get($grid-breakpoints, xl)) and (max-width: 1500px)
+        width: auto
+        justify-content: center
+    .nav-item
+        flex-grow: 0
+        @media (min-width: map_get($grid-breakpoints, xl)) and (max-width: 1500px)
+            display: none
+            &:last-child 
+                display: inline-block
+        @media (min-width: 1500px) and (max-width: 1850px)
+            padding: 20px
+        .nav-link
+            color: #fff
+            &:after 
+                display: none
+            svg
+                fill: $primary 
+                margin-right: 10px
+        &:last-child 
+            @media (min-width: 1500px)
+                margin-left: auto
+
+
+.side-menu
+    width: 100px
+    position: fixed
+    top: 100px
+    // min-height: 250px !important
+    &__drop
+        background-color: #fff
+        position: absolute
+        left: -100vw
+        top: 0
+        width: 100vw
+        padding: 100px 15px 0 100px
+        z-index: 1
+        transition: left 0.5s ease-out
+        &__close 
+            position: absolute
+            right: 15px
+            top: 0
+        &__title 
+            position: absolute
+            left: 250px
+            top: 30px
+
+
+.side-menu__btn
+    flex-grow: 1
+    background-color: #F5F5F5
+    cursor: pointer
+    z-index: 2
+    display: flex
+    &__title
+        transform: rotate(-90deg)
+        span 
+            width: 30px
+            height: 6px
+            border-bottom: 2px solid $body-color
+            position: relative
+            margin-left: 10px
+            &:before
+                content: ''
+                position: absolute
+                height: 2px
+                width: 100%
+                top: 0
+                left: 0
+                background-color: $body-color
+                transition: all 0.5s ease-out
+
+            
+
+.side-menu--open 
+    .side-menu__drop
+        left: 0
+    .side-menu__btn__title
+        span:before
+            left: 15px
+
+
+.search-btn
+    position: relative
+    z-index: 2
+    overflow: hidden
+    &__triger
+        background-color: #fff
+        cursor: pointer
+        transition: all 0.2s ease
+        svg 
+            fill: $body-color
+        &:hover 
+            background-color: $body-color
+            svg 
+                fill: $primary
+        &--close 
+            position: absolute
+            border: none
+            background-color: $primary
+            left: 100%
+            transition: all 0.5s ease-out
+            svg 
+                fill: $body-color
+            &:focus 
+                outline: none
+        &--submit 
+            border: none
+
+.search-form-media
+    flex: 1 1 0
+    width: auto 
+    max-width: initial
+
+.search-btn--media
+    position: relative
+    z-index: 2
+    overflow: hidden
+    @media (max-width: map_get($grid-breakpoints, md))
+        flex: 1 1 0
+        width: auto 
+        max-width: initial
+    &__triger
+        background-color: #fff
+        cursor: pointer
+        transition: all 0.2s ease
+        @media (min-width: 396px)
+            width: 100%
+            max-width: 100%
+        svg 
+            fill: $body-color
+        &:hover 
+            background-color: $body-color
+            svg 
+                fill: $primary
+    &__submit 
+        position: absolute
+        border: none
+        background-color: $primary
+        left: 100%
+        transition: all 0.5s ease-out
+        @media (max-width: map_get($grid-breakpoints, md))
+            width: 100%
+            max-width: 100%
+        @media (min-width: map_get($grid-breakpoints, md)) and (max-width: map_get($grid-breakpoints, xl))
+            left: 0
+        svg 
+            fill: $body-color
+        &:focus 
+            outline: none
+
+.search-line
+    position: absolute
+    height: 100px
+    width: 400px
+    left: -400px
+    top: 0
+    transition: all 0.5s ease-out
+    z-index: 2
+    @media (max-width: 396px)
+        position: fixed
+        height: 25vw
+        width: 100vw
+        top: 25vw
+        left: -100vw
+        &--open 
+            left: 0 
+    input 
+        flex-grow: 1
+        background-color: #F5F5F5
+        border: none
+        padding: 0 20px
+        border-radius: 0
+    &--open 
+        left: 0 
+    @media (min-width: 396px) and (max-width: map_get($grid-breakpoints, md))
+        position: fixed
+        height: 100px
+        width: 100vw
+        top: 100px
+        left: -100vw
+        &--open 
+            left: 0 
+    @media (min-width: map_get($grid-breakpoints, md)) and (max-width: map_get($grid-breakpoints, xl))
+        position: static
+        flex: 1 1 0
+        width: auto 
+        input 
+            flex: 1 1 0
+            width: auto 
+            background-color: #fff
+        .search-btn__triger
+            display: none
+    @media (min-width: map_get($grid-breakpoints, xl))
+        &--open 
+            left: 100px
+
+.search-btn--open 
+    .search-btn__triger--close
+        left: 0
+
+
+//========== breadcrumbs
+
+
+
+.breadcrumb-item + .breadcrumb-item::before
+    margin: 0 10px
+
+.breadcrumb-item
+    font-size: 14px
+    font-family: $text
+    letter-spacing: 0.05em
+    a 
+        font-size: 14px
+        font-family: $text
+        letter-spacing: 0.05em
+
+
+
+
+// aside social icons 
+
+.social-chat 
+    position: fixed
+    left: 0
+    top: 50% 
+    transform: translateY(-50%)
+    z-index: 10
+    @media (min-width: map_get($grid-breakpoints, xl)) and (max-width: 1500px) 
+        transform: none
+        top: auto 
+        bottom: 20%
+    &__btn 
+        display: flex
+        align-items: center
+        justify-content: center
+        background-color: #262626
+        cursor: pointer
+        transition: 0.5s ease
+        svg 
+            width: 30px
+            height: 30px
+            fill: $primary
+            animation-name: scale-icon 
+            animation-duration: 1.5s
+            animation-timing-function: ease
+            animation-iteration-count: infinite
+        &--opened 
+            background-color: $primary
+            svg 
+                fill: #262626
+
+.social-icons-wrap 
+    position: absolute
+    left: 0
+    top: 100%
+    display: none
+
+.social-icons 
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+    width: 100vw
+    background-color: #262626
+    padding: 20px
+    @media (min-width: map_get($grid-breakpoints, sm)) 
+        max-width: 400px
+    &__item 
+        padding: 20px
+        margin-top: 20px
+        @media (min-width: map_get($grid-breakpoints, md)) 
+            margin: 0 10px
+        svg 
+            width: 50px
+            height: 50px
+    &__title 
+        color: $primary 
+        font-size: 18px
+        width: 100%
+        text-align: center
+
+@keyframes scale-icon 
+    0% 
+        transform: scale(1)
+    50% 
+        transform: scale(1.5)
+    100% 
+        transform: scale(1)

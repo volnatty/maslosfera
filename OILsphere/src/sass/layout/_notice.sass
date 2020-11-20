@@ -1,0 +1,80 @@
+
+
+
+
+.woocommerce-notices-wrapper
+    position: fixed
+    right: 0
+    width: 100%
+    top: 110px
+    background-color: $body-color
+    display: flex
+    align-items: center
+    justify-content: center
+    z-index: 9
+    @media (min-width: map_get($grid-breakpoints, xl))
+        width: 50%
+
+.close-notice
+    position: absolute
+    top: 18px 
+    right: 10px
+    font-size: 40px
+    cursor: pointer 
+    transform: rotate(45deg)
+    line-height: 0
+        
+
+
+.notice-message
+    color: #fff
+    font-family: "Cuprum", sans-serif
+    padding: 20px 30px 20px 20px
+    min-height: 100px 
+    position: relative
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    padding-left: 20px
+    @media (min-width: map_get($grid-breakpoints, xl))
+        justify-content: flex-start
+        flex-direction: row
+        padding-left: 310px
+    a 
+        background-color: transparent !important
+        text-transform: uppercase
+        display: inline-block !important
+        font-family: "Cuprum", sans-serif
+        font-weight: 400 !important
+        color: #333333 !important
+        text-align: center
+        vertical-align: middle
+        padding: 15px 35px !important
+        font-size: 1.125rem !important
+        line-height: 1.5 !important
+        border-radius: 0 !important
+        transition: all 0.2s ease
+        border: 1px solid $primary !important
+        color: $primary !important
+        margin: 0 20px !important
+        margin-bottom: 20px !important
+        @media (min-width: map_get($grid-breakpoints, xl))
+            position: absolute !important
+            left: 20px !important
+            top: 50% !important
+            transform: translateY(-50%) !important
+            margin-bottom: 0 !important
+        &:hover
+            background-color: $primary !important
+            color: $body-color !important
+
+
+.notice_eror
+    width: 100%
+    margin-bottom: 0 !important
+
+.woocommerce-info
+    width: 100%
+    margin-bottom: 0 !important

@@ -1,0 +1,106 @@
+.btn
+	background-color: transparent
+	text-transform: uppercase
+	position: relative
+	overflow: hidden
+	@media (max-width: map_get($grid-breakpoints, xl))
+		font-size: 16px
+	&:before
+		content: ''
+		position: absolute
+		height: 120%
+		width: 130%
+		top: -10%
+		left: -140%
+		transform: skewX(-20deg)
+		transition: all 0.2s ease
+		z-index: 1
+	&:hover
+		background-color: transparent
+		&:before
+			left: -15%
+		span
+			position: relative
+			z-index: 2
+	&:focus
+		box-shadow: none
+
+.btn-primary
+	border: 1px solid $primary
+	color: $primary
+	&:before
+		background-color: $primary
+	&:hover
+		span
+			color: $body-color
+
+.btn-secondary
+	border: 1px solid $body-color
+	color: $body-color
+	&:before
+		background-color: $body-color
+	&:hover
+		span
+			color: #fff
+
+.btn-update-cart
+	border: 1px solid $body-color
+	color: $body-color
+	&:hover
+		background-color: $body-color
+		color: #fff
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle
+	color: $body-color
+	box-shadow: none
+	background-color: transparent
+
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus
+	color: $body-color
+	box-shadow: none
+	background-color: transparent
+
+.btn-load-more
+	display: inline-flex !important
+	justify-content: center
+	align-items: center
+	font-family: "Cuprum", sans-serif !important
+	font-weight: 400 !important
+	color: #fff !important
+	user-select: none !important
+	background-color: transparent !important
+	padding: 15px 35px !important
+	font-size: 1.125rem !important
+	border-radius: 0 !important
+	transition: all 0.2s ease !important
+	border: 1px solid #fff !important
+	height: auto !important
+	line-height: normal !important
+	position: static !important
+	&:after
+		content: ''
+		width: 20px !important
+		height: 20px !important
+		border: 2px solid #ffffff
+		border-top: none
+		border-right: none
+		border-radius: 50%
+		margin-left: 10px
+	&:hover
+		color: #333 !important
+		background-color: #fff !important
+		&:after
+			border-color: #333
+
+.btn-load-more.loading
+	&:after
+		animation: load_more 0.5s(linear) infinite
+
+.alm-btn-wrap .alm-load-more-btn.loading:before
+	display: none !important
+
+@keyframes load_more
+	0%
+		transform: rotate(0deg)
+	100%
+		transform: rotate(360deg)

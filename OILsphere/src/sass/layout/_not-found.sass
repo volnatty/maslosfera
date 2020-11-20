@@ -1,0 +1,31 @@
+
+
+
+section.not-found-section
+    margin-top: 25vw  
+    height: auto
+    min-height: calc(100vh - 25vw)
+    @include bg-cover
+    @media (min-width: 396px)
+        margin-top: 100px
+        min-height: calc(100vh - 100px)
+    @media (min-width: map_get($grid-breakpoints, xl))
+        height: auto
+        min-height: calc(100vh - 100px)
+
+.not-found
+    @media (min-width: map_get($grid-breakpoints, lg))
+        padding-left: 130px
+    &__subtitle 
+        color: $primary
+    &__title 
+        color: #fff
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,157 @@
+
+section.single-product-section
+    padding-top: 35vw
+    padding-bottom: 80px
+    @media (min-width: 396px)
+        padding-top: 110px
+
+.single-product
+    @media (min-width: map_get($grid-breakpoints, xl))
+        padding: 0 70px
+    &__title
+        font-size: 25px
+        margin-bottom: 45px
+        @media (min-width: map_get($grid-breakpoints, xl))
+            font-size: 36px
+    &__price
+        padding: 45px 0
+        border-bottom: 1px dotted rgba(35, 31, 32, 0.26)
+        &__title
+            color: #C2C2C2
+        .old-price
+            font-size: 18px
+        .real-price
+            font-size: 24px
+            font-family: $text
+
+.old-price, .real-price
+    white-space: nowrap
+
+.in-cart
+    height: 50px
+    background: none
+    border: none
+    padding: 0
+    margin: 0
+    h5
+        padding: 0 20px
+        line-height: 50px
+        text-transform: uppercase
+        color: $primary
+        background-color: $body-color
+        transition: all 0.2s ease
+    &:after
+        display: inline-block
+        height: 50px
+        width: 0
+        content: ''
+        background: $body-color url('../images/icons/cross.svg') no-repeat center center
+        transition: all 0.2s ease
+    &:hover
+        h5
+            color: $body-color
+            background-color: $primary
+        &:after
+            width: 50px
+
+.specification
+    padding: 45px 0 35px 0
+    border-top: 1px dotted rgba(35, 31, 32, 0.26)
+    border-bottom: 1px dotted rgba(35, 31, 32, 0.26)
+    &__item
+        margin-bottom: 10px
+        @media (min-width: map_get($grid-breakpoints, xl))
+            margin-bottom: 20px
+        .availability
+            font-size: 14px
+            color: #59B98B
+        &__title
+            color: #888
+        &__text
+            text-align: right
+
+.single-product-slider
+    &__item
+        @include bg-cover
+        padding-top: 690/585*100%
+        width: 100%
+
+.product-tubs
+    .nav-tabs
+        border-bottom: 2px solid #EBEBEB
+        display: flex
+        .nav-item
+            width: 50%
+            .nav-link
+                color: #888
+                width: 100%
+                text-align: center
+                position: relative
+                @media (max-width: 1800px)
+                    font-size: 16px
+                    padding: 10px
+                &:after
+                    content: ''
+                    height: 4px
+                    background-color: $primary
+                    width: 0
+                    position: absolute
+                    left: 0
+                    bottom: -2px
+                    transition: all 0.2s ease
+                &.active
+                    color: #333333
+                    &:after
+                        width: 100%
+                &:hover
+                    &:after
+                        width: 100%
+    .tab-pane
+        padding-top: 30px
+        p
+            color: #888
+            min-width: 30%
+        .specification__item
+            p:last-child
+                text-align: right
+
+.change-slider
+    display: flex
+    height: 100%
+    flex-direction: column
+    &__img
+        @include bg-cover
+        border: 2px solid transparent
+        margin: 5px 0 5px 10px
+        flex-grow: 1
+        flex-basis: 0
+        cursor: pointer
+        transition: all 0.2s ease
+        &--active
+            border-color: $primary
+        &:first-child
+            margin-top: 0
+        &:last-child
+            margin-bottom: 0
+
+.single-product-slider
+    @media (max-width: map_get($grid-breakpoints, xl))
+        max-width: 400px
+        margin: 0 auto
+
+.single-product-btn-media
+    @media (min-width: map_get($grid-breakpoints, xl)) and (max-width: 1700px)
+        width: 100%
+
+.specification__item
+    p
+        min-width: 30%
+    p:last-child
+        text-align: right
+
+.single-title-descript
+    margin-top: 40px
+    margin-bottom: 20px
+    padding: 15px
+    border-bottom: 4px solid $primary
+    text-align: center

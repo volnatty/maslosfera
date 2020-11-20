@@ -1,0 +1,63 @@
+body 
+    letter-spacing: 0.05rem 
+
+body.single-product 
+    padding: 0 !important
+
+body, html
+    overflow-x: hidden
+    
+section 
+    overflow: hidden
+
+// h1 
+//     color: #fff
+
+    
+section 
+    position: relative
+    @media (min-width: map_get($grid-breakpoints, xl))
+        padding: 0 100px
+
+section.container-section
+    @media (min-width: map_get($grid-breakpoints, xl))
+        padding: 0 93px
+
+a
+    transition: all 0.2s ease
+    font-family: $title
+
+
+svg 
+    transition: all 0.2s ease
+
+    
+label, button, input, select
+    transition: all 0.2s ease
+    outline: none
+    &:focus 
+        outline: none
+    
+    
+    
+#otstup 
+    height: 1500px
+
+.input-hidden 
+    position: absolute
+    left: -9999px
+
+
+
+
+.from_right_interval, .from_top, .from_left, .from_right, .from_bottom_interval
+    @media (min-width: map_get($grid-breakpoints, xl))
+        visibility: hidden
+
+
+.woocommerce-info
+    border-top-color: $primary
+    background-color: $body-color
+    color: $primary
+    &:before 
+        color: $primary

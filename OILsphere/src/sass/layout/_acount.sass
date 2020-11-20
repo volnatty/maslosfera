@@ -1,0 +1,86 @@
+
+
+section.my-acount-section
+    margin-top: 25vw  
+    height: auto
+    min-height: 500px
+    background-color: #F5F5F5
+    padding-top: 30px
+    &:before
+        content: ''
+        position: absolute
+        top: 0
+        right: 0
+        height: 100%
+        width: 50%
+        background-image: url(../images/acount.jpg)
+        display: none
+        @include bg-cover
+        @media (min-width: map_get($grid-breakpoints, xl))
+            display: block
+    @media (min-width: 396px)
+        margin-top: 100px
+    @media (min-width: map_get($grid-breakpoints, xl))
+        margin-top: 100px
+        min-height: 700px
+        padding-top: 50px
+
+
+.nav-acount 
+    padding: 0
+    margin: 0
+    list-style: none 
+    display: flex
+    align-items: center
+    justify-content: space-between
+    flex-wrap: wrap
+    li 
+        width: 100%
+        padding: 0 10px
+        margin-bottom: 10px
+        @media (min-width: map_get($grid-breakpoints, md))
+            width: 50%
+        @media (min-width: 1550px)
+            width: 23%
+            padding: 0
+            margin: 0
+        a 
+            padding: 10px
+            text-align: center
+            display: inline-block
+            width: 100%
+            background-color: $body-color 
+            color: #fff 
+            border: 1px solid $body-color
+            font-size: 16px
+            margin-bottom: 15px
+            &:hover 
+                color: $body-color 
+                background-color: transparent
+
+
+
+
+.acount-order-row
+    padding: 20px 0
+    border-bottom: 1px dotted rgba(35, 31, 32, 0.26)
+
+
+
+.woocommerce-Price-amount
+    height: auto
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

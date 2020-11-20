@@ -1,0 +1,26 @@
+/**
+Theme Name: OILsphere
+Author: Impression Bureau
+Description: Some theme for OILsphere
+Version: 0.1
+*/
+
+
+.old-price {
+	color: #dc3545;
+}
+
+.wcus_np_billing_fields {
+	display: inline;
+}
+
+@media (min-width: 1500px) {
+	.nav-list {
+		width: auto;
+		flex-grow: 1;
+	}
+	
+	.nav-list--tel {
+		flex-shrink: 1;
+	}
+}

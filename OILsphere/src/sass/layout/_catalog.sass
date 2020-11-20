@@ -1,0 +1,183 @@
+
+//========== Front page
+
+// section.catalog-section
+//     padding-top: 100px
+
+.catalog-block
+    flex-wrap: wrap
+    @media (min-width: map_get($grid-breakpoints, xl))
+        height: 80vh
+        min-height: 500px
+
+
+
+.catalog-item 
+    border: 2px solid #fff 
+    width: 50%
+    @media (min-width: map_get($grid-breakpoints, sm))
+        width: 33%
+    @media (min-width: map_get($grid-breakpoints, xl))
+        flex: 1 1 0
+        width: 0
+    &:last-child 
+        border-right: none
+    &__img
+        @include bg-cover
+        position: relative
+        padding-top: 100%
+        @media (min-width: map_get($grid-breakpoints, xl))
+            padding-top: 0
+            flex: 1 1 auto
+        &:before
+            content: ''
+            @include absolute 
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%)
+            opacity: 0
+            transition: all 0.4s ease
+    &__title
+        font-size: 12px
+        text-transform: uppercase
+        padding: 10px 0
+        transition: all 0.4s ease
+        text-align: center
+        @media (min-width: 1850px)
+            font-size: 18px
+            padding: 20px 30px
+            text-align: left
+    &:hover 
+        .catalog-item__title
+            background-color: $primary
+        .catalog-item__img
+            @media (min-width: map_get($grid-breakpoints, xl))
+                &:before
+                    opacity: 1
+                .title-gradient
+                    opacity: 1
+
+
+
+.title-gradient
+    display: none
+    font-size: 67px
+    letter-spacing: 0.05rem
+    background-image: linear-gradient(270deg, rgba(255, 224, 143, 0.3) 0%, #FFE08F 80%)
+    -webkit-background-clip: text
+    -webkit-text-fill-color: transparent
+    position: absolute
+    transform: rotate(-90deg)
+    left: 20px
+    bottom: -30px
+    opacity: 0
+    transition: all 0.4s ease
+    transform-origin: 0 0
+    text-transform: uppercase
+    @media (min-width: map_get($grid-breakpoints, xl)) and (max-width: 1850px)
+        display: block
+        font-size: 50px
+    @media (min-width: 1851px)
+        display: block
+    
+        
+
+
+
+
+//========== Catalog page
+
+
+section.catalog-page-section
+    padding-top: 35vw
+    @media (min-width: 396px)
+        padding-top: 150px
+        min-height: 100vh
+
+
+.oil-catalog
+    display: flex
+    flex-wrap: wrap 
+    &__item
+        width: 100%
+        padding: 15px 10px
+        margin-bottom: 40px
+        @media (min-width: map_get($grid-breakpoints, sm))
+            width: 50%
+        @media (min-width: map_get($grid-breakpoints, md))
+            width: 33%
+        @media (min-width: map_get($grid-breakpoints, xl)) 
+            width: 33%
+        @media (min-width: 1850px)
+            width: 20%
+
+
+.filter
+    @media (min-width: map_get($grid-breakpoints, md)) 
+        padding: 30px 0 0 30px
+    &__title
+        color: #888
+        font-size: 14px
+        margin-bottom: 20px
+
+
+
+
+.catalog-pagination
+    margin: 20px 0
+    margin-bottom: 50px
+    ul 
+        display: flex
+        align-items: center
+        justify-content: center
+        padding: 0
+        margin: 0
+        list-style: none
+        li 
+            margin: 0 5px
+            a
+                padding: 15px
+                border: 1px solid #333 
+                color: #333
+                font-size: 18px
+                font-family: $title
+                display: inline-block
+                &:hover 
+                    background-color: #333 
+                    color: #fff 
+            span 
+                padding: 15px
+                border: 1px solid #333 
+                color: #fff
+                font-size: 18px
+                font-family: $title
+                background-color: #333
+                display: inline-block
+
+
+
+.oil-catalog__item--discount
+    display: flex
+    flex-direction: column 
+    height: 100%
+    width: 100%
+    @include bg-cover
+    padding: 20px
+    position: relative
+    &:before 
+        content: ''
+        @include absolute
+        background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%)
+    h3 
+        color: #fff 
+        margin-bottom: 20px
+        margin-top: auto 
+        position: relative
+    p 
+        color: #fff
+        position: relative
+
+
+
+
+
+
+

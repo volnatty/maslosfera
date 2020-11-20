@@ -1,0 +1,123 @@
+
+
+
+
+
+
+.oil-card
+    background-color: #fff
+    position: relative
+    transition: all 0.4s ease
+    &__img 
+        @include bg-cover
+        padding-top: 300/255*100%
+        margin-bottom: 30px
+    &__title
+        padding: 0 20px
+        margin-bottom: 10px
+        &:hover 
+            text-decoration: underline
+    &__price 
+        height: 50px
+        display: flex
+        align-items: center
+        padding-right: 65px
+        padding-left: 20px
+        position: relative
+        .real-price
+            margin-left: auto
+    &:hover 
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15)
+
+.old-price 
+    color: #C2C2C2
+    font-size: 14px
+    text-decoration: line-through
+
+.buy
+    height: 50px
+    position: absolute
+    overflow: hidden
+    right: -1px
+    bottom: 0
+    &__btn
+        height: 50px
+        width: 50px
+        position: relative
+        overflow: hidden
+        background: $primary url('../images/icons/cart-icon.svg') no-repeat center center
+        &:after 
+            content: ''
+            height: 100%
+            width: 100%
+            background: $body-color url('../images/icons/cross.svg') no-repeat center center
+            position: absolute
+            right: 100%
+            transition: all 0.2s ease
+    &__line
+        flex-grow: 1
+        line-height: 50px
+        text-transform: uppercase
+        background-color: $body-color
+        color: $primary
+        position: relative
+        right: -100%
+        transition: all 0.2s ease
+
+.buy:hover 
+    .buy__line
+        right: 0
+    .buy__btn:after
+        right: 0
+
+.buy.loading
+    .buy__line
+        right: 0
+    .buy__btn:before
+        content: ''
+        height: 100%
+        width: 100%
+        background-color: $body-color
+        position: absolute
+        right: 0
+    .buy__btn:after
+        right: 0
+        animation: animation_sfera .5s(linear) infinite
+
+
+
+
+@keyframes animation_sfera
+    0% 
+        transform: rotate(0)
+    100%
+        transform: rotate(360deg)
+
+
+
+
+.buy.added
+    .buy__btn
+        background: $primary url('../images/icons/check-black.svg') no-repeat center center
+    .buy__btn:after 
+        background: $body-color url('../images/icons/check-orange.svg') no-repeat center center
+
+
+
+.added_to_cart 
+    height: 50px
+    position: absolute
+    overflow: hidden
+    right: 0
+    bottom: -50px
+    width: 100%
+    text-transform: uppercase
+    background-color: $body-color
+    color: $primary
+    display: flex !important
+    padding-top: 0 !important
+    align-items: center
+    justify-content: center
+    font-size: 1.125rem
+    &:hover 
+        color: #fff

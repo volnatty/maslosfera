@@ -1,0 +1,125 @@
+
+
+//========== footer map section
+
+section.footer-map-section
+    background-color: $body-color
+    @media (min-width: map_get($grid-breakpoints, xl))
+        padding-top: 120px
+
+
+
+#map 
+    height: 300px
+    position: relative
+    @media (min-width: map_get($grid-breakpoints, xl))
+        height: 500px
+
+.map-ground
+    background-color: rgba(#000 , 0.7)
+    @include absolute
+    z-index: 9
+    transition: all 0.2s ease
+    opacity: 0
+    display: flex
+    align-items: center
+    justify-content: center
+    color: #fff 
+    font-size: 30px
+    cursor: pointer
+    &:hover 
+        opacity: 1
+
+
+
+//========== footer
+
+
+footer
+    background-color: #2C2B2B
+    @media (min-width: map_get($grid-breakpoints, xl))
+        padding: 0 93px
+
+.footer-bg
+    background-color: #262626
+    padding-top: 20px
+    @media (min-width: map_get($grid-breakpoints, xl))
+        padding-top: 65px
+
+.footer-title
+    color: $primary
+    margin: 20px 0
+    display: block
+    text-transform: uppercase
+    @media (min-width: map_get($grid-breakpoints, xl))
+        margin: 0 0 20px 0
+    &:hover 
+        color: lighten($primary, 5%)
+
+.footer-text
+    color: #888
+    font-size: 12px
+
+.footer-list
+    padding-left: 0
+    list-style: none
+    li 
+        a, p
+            padding: 10px 0
+            color: #fff 
+            display: inline-block
+            font-size: 14px
+            svg 
+                fill: $primary
+                margin-right: 10px
+            &:hover 
+                color: $primary
+
+.footer-social
+    a 
+        margin-right: 10px
+        svg 
+            fill: $primary
+
+.dev-line
+    padding: 15px 0
+    &__item 
+        color: #fff 
+        font-weight: 300
+        font-size: 12px
+        a 
+            padding: 0 10px
+            font-weight: normal
+            color: #fff
+            font-size: 14px
+
+
+
+
+
+// Contact form
+
+.wpcf7-mail-sent-ok
+    border: none !important
+    margin: 20px 0 !important
+    color: green !important
+    padding: 0 !important
+
+
+.wpcf7-validation-errors, 
+.wpcf7-acceptance-missing
+    color: #ff0000 !important
+    border: none !important
+    margin: 20px 0 !important
+    padding: 0 !important
+
+
+
+
+.footer-social 
+    display: flex
+    align-items: center
+    justify-content: center
+
+
+

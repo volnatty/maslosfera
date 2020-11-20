@@ -1,0 +1,81 @@
+
+
+
+
+section.login-section
+    padding-top: 25vw
+    @media (min-width: 396px)
+        padding-top: 100px
+    @media (min-width: map_get($grid-breakpoints, xl)) and (max-width: 1500px)
+        height: calc(100vh - 100px)
+        min-height: 900px
+    @media (min-width: 1500px)
+        min-height: 500px
+    &:before 
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        width: 50%
+        height: 100%
+        background-image: url(../images/signin-bg.jpg)
+        @include bg-cover
+        display: none
+        @media (min-width: map_get($grid-breakpoints, lg))
+            display: block
+
+.login 
+    position: relative
+    padding: 20px
+    @media (min-width: map_get($grid-breakpoints, lg))
+        padding: 30px
+    @media (min-width: map_get($grid-breakpoints, xl))
+        padding: 50px 0 0 50px
+    @media (max-width: map_get($grid-breakpoints, sm))
+        h1 
+            font-size: 25px
+            margin-bottom: 20px
+    @media (min-width: map_get($grid-breakpoints, xl)) and (max-width: 1500px)
+        h1 
+            font-size: 30px
+    &__decor 
+        position: absolute
+        right: 0
+        top: 50px
+        fill: #EDEDED
+    &__form 
+        @media (min-width: map_get($grid-breakpoints, lg))
+            padding: 30px
+        @media (min-width: map_get($grid-breakpoints, xl)) and (max-width: 1500px)
+            padding: 30px
+        @media (min-width: 1500px)
+            padding: 50px 150px
+    &__footer 
+        &__btn 
+            padding: 40px 80px
+            background-color: #F5F5F5
+            &:hover 
+                background-color: $body-color 
+                color: $primary
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
